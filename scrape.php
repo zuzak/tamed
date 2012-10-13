@@ -42,12 +42,26 @@ $counter = 1;
 
    $foo = array_shift($dishes);
    $foo = array_shift($dishes);
+   
    $dishcount = 0;
    while ($dishcount != count($dishes)) {
       $dishes[$dishcount] = explode("<td>",$dishes[$dishcount]);
-     $dishcount++;
- }
-   var_dump($dates);
-   var_dump($dishes);
-
+      $dishcount++;
+   }
+   
+   $c = 0;
+   while ($c != count($dishes)){
+      $d = 1;
+      $currdish = trim(strip_tags($dishes[$c][0]));
+      while ($d != count($dishes[$c])){
+         $currdate = $dates[$d];
+         $menu[$currdate][$time][$currdish] = trim(strip_tags($dishes[$c][$d]));
+         $d++;
+      }
+      $c++;
+   }
+//   var_dump($dates);
+ //  var_dump($dishes);
+var_dump($menu);
+//var_dump($content);
 ?>
