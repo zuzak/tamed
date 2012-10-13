@@ -18,7 +18,7 @@ $content = explode("<h2>",$content);
 //var_dump($content[1]);
 
 $counter = 1;
-//while ($counter != count($content)) {
+while ($counter != count($content)) {
    $curr = $content[$counter];
    $time = truncatebefore($content[$counter],"</h2>");
    $time = truncateafter($curr,"</h2>");
@@ -60,6 +60,7 @@ $counter = 1;
       }
       $c++;
    }
+}
 //   var_dump($dates);
  //  var_dump($dishes);
 var_dump($menu);
