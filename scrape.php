@@ -1,6 +1,8 @@
 <?php
 mb_internal_encoding("UTF-8"); 
-
+if (!isset($lang)){
+   $lang = "en";
+}
 function truncatebefore($haystack,$needle) {
    $return = substr($haystack,strpos($haystack,$needle));
    return $return;
@@ -9,7 +11,7 @@ function truncateafter($haystack,$needle) {
    $return = substr($haystack,0,strpos($haystack,$needle));
    return $return;
 }
-$site = file_get_contents("http://www.aber.ac.uk/en/hospitality/hospitality-menu");
+$site = file_get_contents("http://www.aber.ac.uk/".$lang."/hospitality/hospitality-menu");
 
 $content = truncatebefore($site,'<h2>');
 
@@ -52,7 +54,8 @@ while ($counter != count($content)) {
    $c = 0;
    while ($c != count($dishes)){
       $d = 1;
-      $currdish = trim(strip_tags($dishes[$c][0]));
+//      $currdish = trim(strip_tags($dishes[$c][0]));
+      $currdish = $c;
       while ($d != count($dishes[$c])){
          $currdate = $dates[$d];
          $menu[$currdate][$time][$currdish] = trim(strip_tags($dishes[$c][$d]));
@@ -61,8 +64,4 @@ while ($counter != count($content)) {
       $c++;
    }
 }
-//   var_dump($dates);
- //  var_dump($dishes);
-var_dump($menu);
-//var_dump($content);
 ?>

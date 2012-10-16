@@ -1,0 +1,103 @@
+@import url(http://fonts.googleapis.com/css?family=Titillium+Web:400,300);
+
+body {
+   font-family:"Titillium Web", sans-serif;
+   width:960px;
+   margin-left:auto;
+   margin-right:auto;
+   text-align:center;
+}
+
+h1, h2 {
+   text-align:left;
+}
+/* table */
+
+#opening-times {
+   margin-left:auto;
+   margin-right:auto;
+/*   width:800px; */
+   background-color: yellow;
+}
+.calendar-column {
+   width:12.5%;
+   background-color:#eeeeee;
+   float:left;
+   overflow:hidden;
+}
+.calendar-header {
+   font-weight:bold;
+   text-align:inherit;
+}
+.calendar-cell {
+   height:2em;
+   background-color:#cccccc;
+   margin-bottom:2px;
+   text-align:center;
+   font-size:80%;
+   color:#555555;
+}
+.calendar-null {
+   font-style:italic;
+   color:#eeeeee;
+}
+.calendar-highlight{
+   color:#000000;
+}
+
+.menuitem {
+   width:200px;
+   height:100px;
+   margin-right:5px;
+   float:left;
+   -webkit-border-radius: 5px;
+   -moz-border-radius: 5px;
+   border-radius: 5px;
+   background-color:#eeeeee;
+   text-align:center;
+   padding:5px;
+}
+.menu-veggie {
+   border:1px solid green;
+}
+.menu-main {
+   border:1px solid crimson;
+}
+.mains {
+   width:870px;
+   margin-left:auto;
+   margin-right:auto;
+}
+.menu-main span, .menu-veggie span {
+   vertical-align:middle;
+   display:table-cell;
+   height:100px;
+   width:210px;
+   margin-left:auto;
+   margin-right:auto;
+}
+.sides {
+   clear:both;
+   padding-top:10px;
+   text-align:center;
+}
+.menu-potato, .menu-veg {
+   display:inline;
+   background-color:#eeeeee;
+   padding-left:10px;
+   padding-right:10px;
+   padding-top:5px;
+   padding-bottom:5px;
+   margin:10px;
+   -webkit-border-radius: 5px;
+   -moz-border-radius: 5px;
+   border-radius: 5px;
+}
+.menu-potato {
+   border:1px solid brown;
+}
+.menu-veg {
+   border:1px solid darkgreen;
+}
+
+

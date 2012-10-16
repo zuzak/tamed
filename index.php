@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<?php $lang = "en"; require "scrape.php"; $tz = "Lunch"; $date = date("d/m/Y",time()+(24*60*60)); ?><!DOCTYPE html>
    <html>
       <head>
          <title>Tamed</title>
@@ -6,7 +6,10 @@
          <link rel="stylesheet" type="text/css" media="screen" href="stylesheet.css">
       </head>
       <body>
-         <h1>Tamed Da</h1>
+	<!--
+	<?php var_dump($menu); ?>
+	-->
+         <h1>Tamed Da (<?php echo $date; ?>)</h1>
          <h2>Opening times</h2>
          <div id="opening-times">
             <div class="calendar-column">
@@ -61,19 +64,30 @@
          <h2>Menu</h2>
          <div id="menu">
             <div class="mains">
-               <div class="menu-main menuitem"><span>Creamy fisherman's pie</span></div>
-               <div class="menu-main menuitem"><span>Breaded chicken escalope with sweet chilli sauce</span></div>
-               <div class="menu-veggie menuitem"><span>Glamorgan sausage bake</span></div>
-               <div class="menu-veggie menuitem"><span>Vegetable tagine and lemon rice</span></div>
+               <div class="menu-main menuitem"><span><?php echo $menu[$date][$tz][0]; ?></span></div>
+               <div class="menu-main menuitem"><span><?php echo $menu[$date][$tz][1]; ?></span></div>
+               <div class="menu-veggie menuitem"><span><?php echo $menu[$date][$tz][3]; ?></span></div>
+               <div class="menu-veggie menuitem"><span><?php echo $menu[$date][$tz][4]; ?></span></div>
+               <!-- <div class="menu-theatre menuitem"><span><?php echo $menu[$date][$tz][5]; ?></span></div> -->
             </div>
             <div class="sides">
-                  <div class="menu-potato">Chips</div>
-                  <div class="menu-potato">Parsley potato</div>
-                  <div class="menu-potato">Basil mash</div>
-                  <div class="menu-veg">Green beans</div>
-                  <div class="menu-veg">Carrots</div>
-                  <div class="menu-veg">Broccoli</div>
-                  <div class="menu-veg">Courgettes</div>
+                  <?php
+                  $iteration = 0;
+                  $potato = explode(",",$menu[$date][$tz][6]);
+                  
+                  while ($iteration != count($potato)) {
+                     echo '<div class="menu-potato">'.ucfirst(trim($potato[$iteration])).'</div>';
+                     $iteration++;
+                  }
+                  
+                  $iteration = 0;
+                  $veg = explode(",",$menu[$date][$tz][7]);
+                  
+                  while ($iteration != count($veg)) {
+                     echo '<div class="menu-veg">'.ucfirst(trim($veg[$iteration])).'</div>';
+                     $iteration++;
+                  }
+                  ?>
                </div>
             </div>
          </div>
